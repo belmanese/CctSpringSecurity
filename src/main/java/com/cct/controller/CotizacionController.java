@@ -20,7 +20,7 @@ public class CotizacionController {
 	@RequestMapping(value = "/generar", method = RequestMethod.GET)
 	public ModelAndView adminPage(HttpServletRequest request) {		
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Modulo Cotizaciòn");
+		model.addObject("title", "Modulo Cotizacion");
 		model.addObject("message", "Acceso a cotizaciones para ROLE_USER!");
 		model.setViewName("cotizacion");
 		WebAuthenticationDetails wad = null;
