@@ -1,0 +1,27 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<http auto-config="true" use-expressions="true">
+		<intercept-url pattern="/cotizacion/**" access="hasRole('ROLE_USER') and hasIpAddress('0:0:0:0:0:0:0:1')" />
+		<intercept-url pattern="/inventario/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')" />
+		<intercept-url pattern="/planVenta/**" access="hasRole('ROLE_CONSULT')" />
+		<intercept-url pattern="/reporte/**" access="hasRole('ROLE_DBA')" />
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="cotizacionUser" password="cotizacionUser" authorities="ROLE_USER" />
+				<user name="inventarioUser" password="inventarioUser" authorities="ROLE_ADMIN" />
+				<user name="planVentaUser" password="planVentaUser" authorities="ROLE_CONSULT" />
+				<user name="reporteUser" password="reporteUser" authorities="ROLE_DBA" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>
