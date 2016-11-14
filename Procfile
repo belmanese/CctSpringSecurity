@@ -1,2 +1,2 @@
-web: java $JAVA_OPTS -cp target/classes:target/m2e-wtp/*.jar com.cct.controller
+web:    java -cp target/classes:target/dependency/* HomeController
 worker: sh target/bin/worker 
