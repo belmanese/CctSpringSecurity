@@ -1,2 +1,2 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar cct-spring-security/target/*.war 
-worker: sh cct-spring-security/target/bin/worker 
+web: java $JAVA_OPTS -cp target/classes:target/m2e-wtp/*.war
+worker: sh target/bin/worker 
