@@ -1,1 +1,2 @@
-web: java $JAVA_OPTS -cp target/classes:target/m2e-wtp/*.jar
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
+worker: sh target/bin/worker 
